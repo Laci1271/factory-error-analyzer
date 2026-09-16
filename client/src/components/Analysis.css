@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -46,12 +46,81 @@
 }
 
 /* =========================
-   ÖSSZEFOGLALÓ KÁRTYÁK
+   EXPORT
+========================= */
+
+.export-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  background: #f7f8ff;
+  border: 1px solid #e1e4f5;
+  border-radius: 10px;
+}
+
+.export-panel > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.export-panel strong {
+  color: #333;
+  font-size: 1rem;
+}
+
+.export-panel span {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.export-button {
+  border: none;
+  border-radius: 7px;
+  padding: 0.75rem 1.2rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.export-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.export-button:active {
+  transform: translateY(0);
+}
+
+.export-button.excel {
+  background: #217346;
+}
+
+.export-button.pdf {
+  background: #d32f2f;
+}
+
+/* =========================
+   ÖSSZEFOGLALÓ
 ========================= */
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(180px, 1fr)
+  );
   gap: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -76,23 +145,43 @@
 }
 
 .summary-card.error {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(
+    135deg,
+    #f093fb 0%,
+    #f5576c 100%
+  );
 }
 
 .summary-card.warning {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  background: linear-gradient(
+    135deg,
+    #fa709a 0%,
+    #fee140 100%
+  );
 }
 
 .summary-card.info {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(
+    135deg,
+    #4facfe 0%,
+    #00f2fe 100%
+  );
 }
 
 .summary-card.purple {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 100%
+  );
 }
 
 .summary-card.green {
-  background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+  background: linear-gradient(
+    135deg,
+    #43cea2 0%,
+    #185a9d 100%
+  );
 }
 
 /* =========================
@@ -101,7 +190,10 @@
 
 .quick-info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(230px, 1fr)
+  );
   gap: 1rem;
 }
 
@@ -143,7 +235,7 @@
 }
 
 /* =========================
-   SZEKCIÓK
+   SZEKCIÓ
 ========================= */
 
 .section {
@@ -158,7 +250,7 @@
 }
 
 /* =========================
-   HIBATÍPUS BONTÁS
+   HIBATÍPUS
 ========================= */
 
 .type-breakdown {
@@ -193,11 +285,19 @@
 }
 
 .progress-fill.warnung {
-  background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+  background: linear-gradient(
+    90deg,
+    #fa709a 0%,
+    #fee140 100%
+  );
 }
 
 .progress-fill.fehler {
-  background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(
+    90deg,
+    #f093fb 0%,
+    #f5576c 100%
+  );
 }
 
 .count {
@@ -316,10 +416,6 @@
   border-left: 3px solid #f5576c;
 }
 
-.statistics-table {
-  min-width: 650px;
-}
-
 .error-text {
   max-width: 350px;
   min-width: 220px;
@@ -372,6 +468,19 @@
     flex-wrap: wrap;
   }
 
+  .export-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .export-buttons {
+    width: 100%;
+  }
+
+  .export-button {
+    flex: 1;
+  }
+
   .summary-grid {
     grid-template-columns: 1fr;
   }
@@ -416,5 +525,73 @@
 
   .error-count {
     font-size: 1rem;
+  }
+}
+
+/* =========================
+   PDF NYOMTATÁS
+========================= */
+
+@media print {
+
+  body {
+    background: white !important;
+  }
+
+  .analysis-container {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .export-panel {
+    display: none !important;
+  }
+
+  .analysis-header {
+    margin-bottom: 1rem;
+  }
+
+  .section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .table-wrapper {
+    overflow: visible !important;
+    border: 1px solid #ccc;
+  }
+
+  .data-table {
+    min-width: 0 !important;
+    width: 100% !important;
+    font-size: 8pt !important;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 4px 5px !important;
+  }
+
+  .summary-card {
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .progress-fill {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .type-badge {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .error-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
