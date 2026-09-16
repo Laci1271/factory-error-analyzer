@@ -1,14 +1,18 @@
 services:
   - type: web
     name: factory-error-analyzer
-    env: node
+    runtime: node
     plan: free
-    buildCommand: "cd client && npm install && npm run build"
-    startCommand: "cd server && npm start"
+
+    buildCommand: cd client && npm install && npm run build
+    startCommand: cd server && npm install && npm start
+
+    healthCheckPath: /api/health
+
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000
-    healthCheckPath: /api/health
+        value: "10000"
+
     autoDeploy: false
