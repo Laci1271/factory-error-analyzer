@@ -19,6 +19,12 @@
   color: #333;
 }
 
+.analysis-subtitle {
+  margin: 0.4rem 0 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
 .machine-info {
   display: flex;
   gap: 1rem;
@@ -39,18 +45,23 @@
   font-size: 0.9rem;
 }
 
+/* =========================
+   ÖSSZEFOGLALÓ KÁRTYÁK
+========================= */
+
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
   margin-bottom: 2rem;
 }
 
 .summary-card {
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   color: white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
 .summary-card h3 {
@@ -60,7 +71,7 @@
 
 .summary-card .number {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -76,8 +87,67 @@
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
+.summary-card.purple {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.summary-card.green {
+  background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+}
+
+/* =========================
+   GYORS ÁTTEKINTÉS
+========================= */
+
+.quick-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.quick-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: #f8f9ff;
+  border: 1px solid #e5e7f5;
+  border-radius: 10px;
+}
+
+.quick-icon {
+  font-size: 1.8rem;
+}
+
+.quick-info-card > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.quick-label {
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.quick-info-card strong {
+  color: #333;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.quick-info-card small {
+  color: #667eea;
+  margin-top: 0.3rem;
+}
+
+/* =========================
+   SZEKCIÓK
+========================= */
+
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .section h3 {
@@ -86,6 +156,10 @@
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
+
+/* =========================
+   HIBATÍPUS BONTÁS
+========================= */
 
 .type-breakdown {
   display: flex;
@@ -133,6 +207,10 @@
   color: #667eea;
 }
 
+/* =========================
+   TOP HIBÁK
+========================= */
+
 .top-errors {
   display: flex;
   flex-direction: column;
@@ -165,6 +243,7 @@
 
 .error-details {
   flex: 1;
+  min-width: 0;
 }
 
 .error-details h4 {
@@ -185,16 +264,22 @@
   font-size: 1.2rem;
 }
 
+/* =========================
+   TÁBLÁZATOK
+========================= */
+
 .table-wrapper {
   overflow-x: auto;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #ddd;
+  background: white;
 }
 
 .data-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
+  min-width: 800px;
 }
 
 .data-table thead {
@@ -206,11 +291,13 @@
   padding: 1rem;
   text-align: left;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .data-table td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #eee;
+  vertical-align: middle;
 }
 
 .data-table tbody tr {
@@ -229,8 +316,32 @@
   border-left: 3px solid #f5576c;
 }
 
+.statistics-table {
+  min-width: 650px;
+}
+
 .error-text {
-  max-width: 300px;
+  max-width: 350px;
+  min-width: 220px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.duration-cell {
+  font-weight: 700;
+  color: #667eea;
+  white-space: nowrap;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 20px;
+  background-color: #eef0ff;
+  color: #667eea;
+  font-weight: 600;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .table-note {
@@ -241,14 +352,49 @@
   margin: 0;
 }
 
+/* =========================
+   MOBIL
+========================= */
+
 @media (max-width: 768px) {
+
+  .analysis-container {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
   .analysis-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
+  .machine-info {
+    flex-wrap: wrap;
+  }
+
   .summary-grid {
     grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    padding: 1.2rem;
+  }
+
+  .summary-card .number {
+    font-size: 1.8rem;
+  }
+
+  .quick-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .breakdown-item {
+    gap: 0.5rem;
+  }
+
+  .type-label {
+    min-width: 80px;
+    font-size: 0.85rem;
   }
 
   .data-table {
@@ -257,6 +403,18 @@
 
   .data-table th,
   .data-table td {
-    padding: 0.5rem;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .error-item {
+    padding: 0.75rem;
+  }
+
+  .error-rank {
+    min-width: 30px;
+  }
+
+  .error-count {
+    font-size: 1rem;
   }
 }
