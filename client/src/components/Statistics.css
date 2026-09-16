@@ -1,0 +1,158 @@
+.statistics-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.statistics-container h2 {
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(102, 126, 234, 0.2);
+}
+
+.stat-icon {
+  font-size: 2rem;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-label {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.stat-value {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chart-container {
+  background-color: #f8f9ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e0e7ff;
+}
+
+.chart-container h3 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 400px;
+}
+
+.detailed-stats {
+  margin-top: 2rem;
+}
+
+.detailed-stats h3 {
+  color: #333;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stats-table-wrapper {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stats-table thead {
+  background-color: #667eea;
+  color: white;
+}
+
+.stats-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.stats-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.stats-table tbody tr:hover {
+  background-color: #f8f9ff;
+}
+
+.stats-table .number {
+  text-align: right;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.mini-progress {
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.mini-progress-fill.warnung {
+  background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+}
+
+.mini-progress-fill.fehler {
+  background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+}
+
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-wrapper {
+    height: 300px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
