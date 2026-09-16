@@ -1,0 +1,153 @@
+.upload-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.upload-card {
+  flex: 1;
+  min-width: 300px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-card h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.drop-zone {
+  border: 2px dashed #667eea;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  background-color: #f8f9ff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.drop-zone.active {
+  background-color: #e8ebff;
+  border-color: #764ba2;
+  transform: scale(1.02);
+}
+
+.drop-label {
+  cursor: pointer;
+  display: block;
+}
+
+.drop-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.drop-zone p {
+  margin: 0.5rem 0;
+  color: #333;
+  font-weight: 500;
+}
+
+.drop-zone small {
+  color: #999;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.file-preview {
+  background-color: #e8f5e9;
+  border: 1px solid #4caf50;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: #2e7d32;
+}
+
+.file-preview p {
+  margin: 0.25rem 0;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.info-box {
+  flex: 0 0 300px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3 {
+  margin-top: 0;
+  color: #667eea;
+}
+
+.info-box ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.info-box li {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .upload-container {
+    flex-direction: column;
+  }
+
+  .info-box {
+    flex: 1;
+  }
+}
